@@ -1,0 +1,13 @@
+package com.fmea.fmea_manager;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class FmeaManagerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(FmeaManagerApplication.class, args);
+	}
+
+}
