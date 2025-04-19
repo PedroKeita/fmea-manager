@@ -1,11 +1,34 @@
 package com.fmea.domain.models;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Fmea {
-    //Aqui vai ter como se fosse o PROJETO FMEA, onde o cliente coloca o ID, nome, descrição, informa o dono e quando foi criado
 
-    private String Item;
-    private FailureMode FailureMode;
-    private RiskAssessment RiskAssessment;
-    private CorrectiveAction CorrectiveAction;
+    @Id
+    @GeneratedValue
+    private Long id;
 
+    @Column(nullable = false)
+    private String item;
+
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "failure_mode_id")
+    private FailureMode failuremode;
+
+    @OneToOne
+    private RiskAssessment riskassessment;
+
+    @OneToOne
+    private CorrectiveAction correctiveaction;
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
